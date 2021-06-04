@@ -1,0 +1,18 @@
+---
+
+ansible_network_os: ios
+ansible_user: cisco
+ansible_password: cisco
+ansible_become: yes               #to get to enable mode
+ansible_become_method: enable
+ansible_become_password: cisco
+
+# Used for template
+nodes:
+      R1:
+        loopback100: "172.16.1.1"
+      R2:
+        loopback100: "172.16.2.1"
+        
+# used for variable
+loopback0: 3.3.3.3 255.255.255.0

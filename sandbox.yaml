@@ -1,0 +1,21 @@
+---
+
+- name: "configure interface"
+  hosts: IOSXE
+ # gather_facts: false
+  connection: network_cli
+  tasks: 
+  
+    - name: "make interface"
+      uri:
+        url: "https://ios-xe-mgmt.cisco.com:9443/restconf/data/Cisco-IOS-XE-native:native/interface/"
+        method: GET
+        #force_basic_auth: true
+        user: "developer"
+        password : "C1sco12345"
+        headers:
+          content-Type: 'application/yang-data+json'
+          accept: 'application/yang-data+json'
+        #status_code: -1
+        
+ #      64.103.37.51 

@@ -1,0 +1,24 @@
+---
+
+- name: "configure interface"
+  hosts: ROUTERS
+ # gather_facts: false
+  connection: network_cli
+  tasks: 
+  
+    - name: "make interface"
+      uri:
+        url: https://192.168.40.132/restconf/data/Cisco-IOS-XE-native:native/interface/
+        method: GET
+        force_basic_auth: true
+        user: "cisco"
+        password : "cisco"
+        headers:
+          content-Type: 'application/yang-data+json'
+          accept: 'application/yang-data+json'
+         
+         
+         
+         
+         
+         

@@ -1,0 +1,37 @@
+---
+
+- name: Test
+  hosts: ROUTERS
+  gather_facts: false
+  connection: network_cli
+  tasks: 
+      - name: "interface"
+        ios_command:
+          commands: 
+            - config t
+            - interface GigabitEthernet2
+            - ip add 1.1.1.1 255.255.255.0
+       
+          
+      - name: show ip int bri
+        ios_command:
+          commands:
+            - sh ip int bri
+        register: output    
+        
+      - name: "show output"
+        debug:
+          var: output.stdout_lines
+          
+      - name: show run
+        ios_command:
+          commands: 
+            - show run
+        register: showrun
+        
+      - name: Do Backup
+        copy: 
+         content: "{{ showrun.stdout[0] }}"
+         dest: "/home/user/Documents/backup/{{ inventory_hostname }}"
+        
+  

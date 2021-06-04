@@ -1,0 +1,42 @@
+---
+
+- name: Play1
+  hosts: ROUTERS
+  gather_facts: false
+  connection: network_cli
+  tasks: 
+
+          
+      - name: get facts
+        ios_facts:
+          
+      - name: print facts using variables
+        debug:
+          msg: "{{ansible_facts}}"
+     #    var: facts.stdout_lines     must  be used with ios_command module
+
+     
+
+      - name: Create Loopback0 using Variable
+        ios_command:
+          commands:
+           - config t          
+           - interface loopback0
+           - ip address {{loopback0}} #variable in Group_vars
+           
+           
+           
+- name: Play2
+  hosts: ROUTERS
+  gather_facts: false
+  connection: network_cli
+  tasks:            
+
+        
+      - name: Deploy config using template [loopback100]
+        cli_config:
+          config: "{{ lookup('template', 'template_config.j2') }}"
+        # config: "{{ lookup('file', 'config') }}" = normal file
+     # or can also use  ios_config, template module to deploy config to hosts
+
+  

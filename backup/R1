@@ -1,0 +1,196 @@
+Building configuration...
+
+Current configuration : 3839 bytes
+!
+! Last configuration change at 08:26:29 UTC Fri Jun 4 2021 by cisco
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable password cisco
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-4261924726
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-4261924726
+ revocation-check none
+ rsakeypair TP-self-signed-4261924726
+!
+!
+crypto pki certificate chain TP-self-signed-4261924726
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 34323631 39323437 3236301E 170D3231 30353233 30383531 
+  35325A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D34 32363139 
+  32343732 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100B8A9 D47F7CE7 4076E332 3E9F658E 45512883 C96AF403 435154A4 
+  1B9DDEA3 723F8E7A DADAAD36 9D2D4C41 E491166B E5757E92 EDC0452D EE7BD89D 
+  21BCEFD3 D872438B 3B60E407 163E17E8 0304292F C37E40D6 5539B115 7E62F3D2 
+  A4B59A7C B64097F5 3C9AC44F 52F778E2 8C7FC17D 1CFCBA01 CFDEC623 B28B4B1F 
+  518AE194 CB1B611E A4E372C2 9DDA8860 B8AF63F4 BE10F040 125D2F6F 849DF262 
+  06F7FFFA DD744C1F 0C9E1C9E AB6F1328 D85FA1E6 41101D6F 25D34785 69A588ED 
+  AF910D8A 2E7D191D 863CFF02 9FC04C25 F47DA452 045E058A 24E1293E 6C6B004A 
+  C1073673 D901818D 7561D4EF 36498FCD 332B16E5 78A5FA6E 19884D2D 68C75814 
+  A379C10B 1C4D0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 14CC50BC 888BEB6F 928C65B7 8BEA9DBD 3DCA4F20 
+  31301D06 03551D0E 04160414 CC50BC88 8BEB6F92 8C65B78B EA9DBD3D CA4F2031 
+  300D0609 2A864886 F70D0101 05050003 82010100 B02802FA 23C0C9F7 3B5BCD7F 
+  297ADF08 B15E3730 48EAD0B3 D607B54B E4B413C2 64BC5B71 A57D7821 B7D1FC06 
+  A568637A EA5005F4 BDB059D9 596FE292 FF9DF335 F44FB2B4 2C49A4E8 FD4141B6 
+  B9A7FA52 AE6E1706 F1E699FB C4387685 C9CA0CD2 D50FC96A 9267807D 0363DF91 
+  8E21FA01 9EBF7707 18297383 EE92CC97 FA91E2E6 45E57A9B 51E31643 DF4B54D8 
+  16AC0DE2 2670EF68 2F84C4D8 ED54A343 54C91F93 081B2DCA 1FF43CAC 80DD173F 
+  BD2A38FB 84CCBA2B 47575D1E 50D448BA 8A7CECD9 39F84508 64C26AF8 0DED5C3C 
+  D169BB62 62B647FE 55188980 68D1F11E 77EEF8A3 0B1C472C 3FA094F1 8F4B130D 
+  2161B2C3 162F5FFD 1B59F36C 0395217F DEFC5AEC
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9O5T4RBLXJ1
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+restconf
+!
+username cisco privilege 15 secret 5 $1$tJlN$VY32WwtavndBv4CEPs7dz/
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 3.3.3.3 255.255.255.0
+!
+interface Loopback1
+ ip address 20.1.1.1 255.255.255.255
+!
+interface Loopback100
+ ip address 172.16.1.1 255.255.255.255
+!
+interface GigabitEthernet1
+ ip address dhcp
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ ip address 1.1.1.1 255.255.255.0
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip http client source-interface GigabitEthernet1
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+!
+!
+!
+!
+!
+!
+end
