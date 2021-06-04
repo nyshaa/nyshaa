@@ -29,9 +29,14 @@
             - show run
         register: showrun
         
+      - name: timestamp
+        shell: date +%d-%m-%Y.%H:%M
+        register: timestamp  
+        
+        
       - name: Do Backup
         copy: 
          content: "{{ showrun.stdout[0] }}"
-         dest: "/home/user/Documents/backup/{{ inventory_hostname }}"
+         dest: "/home/user/Documents/backup/{{ inventory_hostname }}_{{ timestamp.stdout }} "
         
   
