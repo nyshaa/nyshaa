@@ -1,0 +1,17 @@
+[ROUTERS]
+R1 ansible_host=192.168.40.132
+R2 ansible_host=192.168.40.134
+
+
+[IOSXE]
+ios-xe-mgmt.cisco.com ansible_port=8181
+#ios-xe-mgmt.cisco.com ansible_port=9443
+#ios-xe-mgmt.cisco.com
+
+
+#[ROUTERS:vars] # use in Group_vars instead
+#ansible_user=cisco
+#ansible_ssh_pass=cisco
+#ansible_network_os=ios
+#ansible_connection=network_cli
+
