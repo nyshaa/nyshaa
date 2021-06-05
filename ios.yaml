@@ -38,5 +38,5 @@
         copy: 
          content: "{{ showrun.stdout[0] }}"
          dest: "/home/nyshaa/Documents/ansible/backup/{{ inventory_hostname }}_{{ timestamp.stdout }} "
-        delegate_to: 127.0.0.1
+        delegate_to: 192.168.40.135
   
