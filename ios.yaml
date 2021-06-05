@@ -37,5 +37,5 @@
       - name: Do Backup
         copy: 
          content: "{{ showrun.stdout[0] }}"
-         dest: "/home/nyshaa/Documents/{{ inventory_hostname }}_{{ timestamp.stdout }} "
+         dest: "/home/nyshaa/Documents/R1 "
   
