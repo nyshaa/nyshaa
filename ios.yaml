@@ -39,4 +39,5 @@
          content: "{{ showrun.stdout[0] }}"
          dest: "/home/nyshaa/Documents/ansible/backup/{{ inventory_hostname }}_{{ timestamp.stdout }} "
         delegate_to: 192.168.40.135
+         ansible_network_os: ios
   
