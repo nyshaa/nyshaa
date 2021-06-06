@@ -37,6 +37,6 @@
       - name: Do Backup
         copy: 
          content: "{{ showrun.stdout[0] }}"
-         dest: "/home/user/Documents/backup/{{ inventory_hostname }}_{{ timestamp.stdout }}.txt "
+         dest: "/home/user/Documents/backup/{{ inventory_hostname }}_{{ timestamp.stdout }} "
         
   
