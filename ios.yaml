@@ -28,10 +28,7 @@
           commands: 
             - show run
         register: showrun
-        
-      - name: timestamp
-        shell: date +%d-%m-%Y.%H:%M
-        register: timestamp  
+
         
         
       - name: Do Backup
