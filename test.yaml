@@ -23,4 +23,7 @@
          dest: "/home/nyshaa/Documents/ansible/backup/{{ inventory_hostname }}_{{ timestamp.stdout }} "
          
       - name: backup using git
-        git
+        git: 
+         repo: https://github.com/nyshaa/nyshaa.git
+         dest: "/home/nyshaa/Documents/ansible/backup/{{ inventory_hostname }}_{{ timestamp.stdout }} "
+
