@@ -16,11 +16,7 @@
         shell: date +%d-%m-%Y.%H:%M
         register: timestamp  
         
-        
-      - name: Do Backup
-        copy: 
-         content: "{{ showrun.stdout[0] }}"
-         dest: "/home/nyshaa/Documents/ansible/backup/{{ inventory_hostname }}_{{ timestamp.stdout }} "
+       
          
       - name: backup using git
         git: 
