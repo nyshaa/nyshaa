@@ -22,19 +22,21 @@
       - name: "show output"
         debug:
           var: output.stdout_lines
-          
+
       - name: show run
         ios_command:
           commands: 
             - show run
         register: showrun
         
-
+      - name: timestamp
+        shell: date +%d-%m-%Y.%H:%M
+        register: timestamp  
         
         
       - name: Do Backup
         copy: 
          content: "{{ showrun.stdout[0] }}"
-         dest: "/home/nyshaa/Documents/ansible/backup/{{ inventory_hostname }} "
-        delegate_to: localhost
+         dest: "/home/nyshaa/Documents/ansible/backup/{{ inventory_hostname }}_{{ timestamp.stdout }} "
+  
   
