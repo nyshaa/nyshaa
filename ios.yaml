@@ -28,12 +28,13 @@
           commands: 
             - show run
         register: showrun
+        
 
         
         
       - name: Do Backup
         copy: 
          content: "{{ showrun.stdout[0] }}"
-         dest: "/home/nyshaa/Documents/ansible/backup/{{ inventory_hostname }}_{{ timestamp.stdout }} "
+         dest: "/home/nyshaa/Documents/ansible/backup/{{ inventory_hostname }} "
         delegate_to: localhost
   
